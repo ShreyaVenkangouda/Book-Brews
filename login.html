@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Simple Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Set background image */
+      background-image: url("https://img.freepik.com/premium-vector/rose-pink-liquid-watercolor-background-with-floral-element_353323-655.jpg?w=1060"); /* Use the correct file path to your image file */
+      background-size: cover; /* Cover the entire background */
+    }
+    .container {
+      width: 300px;
+      background-color: #ffffff8e;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgb(237, 101, 139);
+    }
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .txt_field {
+      width: 100%;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 20px;
+    }
+    .txt_field label {
+      font-size: 14px;
+      color: #666;
+      transform: translateY(20px);
+      transition: 0.3s ease;
+    }
+    .txt_field input {
+      border: none;
+      outline: none;
+      background: none;
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+      color: #333;
+    }
+    .txt_field input:focus ~ label,
+    .txt_field input:valid ~ label {
+      transform: translateY(-15px);
+      color: #333;
+      font-size: 12px;
+    }
+    .forgot {
+      text-align: right;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #666;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .forgot:hover {
+      color: #2691d9;
+    }
+    .btn {
+      width: 100%;
+      background-color: #2691d9;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form method="post" action="{{ url_for('login') }}">
+      <div class="txt_field">
+        <label>Username</label>
+        <input type="text" name="username" required>
+      </div>
+      <div class="txt_field">
+        <label>Password</label>
+        <input type="password" name="password" required>
+      </div>
+      <input type="submit" value="Login" class="btn">
+    </form>
+  </div>
+</body>
+</html>

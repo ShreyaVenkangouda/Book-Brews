@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BOOKCAFE</title>
+    <style>
+        /* Your existing CSS styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh; /* Set the body height to the full viewport height */
+        }
+
+        body:before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://img.freepik.com/free-photo/violet-watercolor-texture-background_1083-172.jpg?size=626&ext=jpg&ga=GA1.1.44546679.1716422400&semt=ais_user');
+            background-size: cover;
+            background-position: center;
+            z-index: -1; /* Move the background image behind the content */
+        }
+
+        /* Header Styles */
+        header {
+            margin: 0%;
+            background-image: url('https://64.media.tumblr.com/327c0f7eff423a54aef61fa8e1a454e9/816e0ca838d4428e-ad/s540x810/9af37821a6438694a2b4700142fe986a050a1a01.jpg');
+            background-size: 1500px;
+            padding: 30px; /* Decreased padding */
+            text-align: center;
+            position: relative; /* Allows positioning of logos */
+        }
+
+        /* Title Styles */
+        .title {
+            font-size: 40px;
+            font-family: 'Segoe Script', cursive, serif; /* Cursive font */
+            color: #ffffff; /* Bright orange */
+            margin: 0; /* Removes extra margin */
+        }
+
+        /* Logo Styles */
+        .logo {
+            position: absolute;
+            top: 20px; /* Adjust top position to your liking */
+            width: 150px; /* Adjust width to your logo size */
+            height: 150px; /* Adjust height to your logo size */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain; /* Scales logo to fit inside the defined width and height */
+        }
+
+        /* Top Left Logo */
+        .logo.left {
+            top: 10px;
+            left: 20px;
+            height: 100px;
+            /* background-image: url('logo.png'); Replace with your left logo image */
+        }
+
+        /* Top Right Logo */
+        .logo.right {
+            top: 10px;
+            right: 20px;
+            height: 100px;
+            /* background-image: url('logo.png'); Replace with your right logo image */
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #faadc2; /* Pastel pink */
+            padding: 5px 5px 5px 0px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Segoe Script', cursive, serif; /* Cursive font */
+            font-size: large;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #FFFFFF; /* White */
+            text-decoration: none;
+            margin: 0 auto;
+            padding: 5px;
+            border-radius: 5px;
+            display: block;
+            width: 50%;
+        }
+
+        nav a:hover {
+            color: #FDD2BB; /* Soft peach */
+            background-color: #ffffff;
+            font-size: larger;
+            padding: 1px;
+        }
+
+        /* Additional body styling */
+        main {
+            padding: 20px;
+            text-align: center;
+            color: #333333; /* Dark gray */
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #444; /* Dark gray */
+        }
+
+        .cta-button {
+            background-color: #FF6347; /* Tomato red */
+            color: #ffffff; /* White */
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #FF4500; /* Orange red */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img class="logo left" src="logo.png">
+    <h1 class="title">Bookcafe</h1>
+    <img class="logo right" src="logo.png">
+</header>
+<nav>
+    <a href="{{ url_for('book') }}">Books</a>
+    <a href="{{ url_for('cafe') }}">Cafe</a>
+</nav>
+<main>
+    <div class="content">
+        <h2>Welcome to Bookcafe</h2>
+        <p>Discover a world of books and relaxation in our cozy cafe atmosphere.</p>
+        <p>Explore our collection of books or enjoy a cup of coffee while diving into your favorite story.</p>
+        <button class="cta-button">Join us today!</button>
+    </div>
+</main>
+</body>
+</html>

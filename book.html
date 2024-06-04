@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BOOKCAFE</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            font-weight: bolder;
+            height: 100vh;
+        }
+
+        body:before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://img.freepik.com/free-photo/violet-watercolor-texture-background_1083-172.jpg?size=626&ext=jpg&ga=GA1.1.44546679.1716422400&semt=ais_user');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        /* Header Styles */
+        header {
+            margin: 0%;
+            background-image: url('https://64.media.tumblr.com/327c0f7eff423a54aef61fa8e1a454e9/816e0ca838d4428e-ad/s540x810/9af37821a6438694a2b4700142fe986a050a1a01.jpg');
+            background-size: 1500px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Title Styles */
+        .title {
+            font-size: 50px;
+            font-family: 'Segoe Script', cursive, serif;
+            color: #8d0042;
+            margin: 0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            border-top: #ffffff;
+            background-color: #ffcad8;
+            padding: 5px 0;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Segoe Script', cursive, serif;
+            font-size: large;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #8d0042;
+            text-decoration: none;
+            margin: 0 auto;
+            padding: 5px;
+            border-radius: 5px;
+            display: block;
+            width: 50%;
+        }
+
+        nav a:hover {
+            color: #ffc800;
+            background-color: #ffffff;
+            font-size: larger;
+            padding: 1px;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .search-container input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Segoe Script', cursive, serif;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .book-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 35px;
+        }
+
+        .book_cover {
+            background-color: rgb(248, 253, 255);
+            border-radius: 20px;
+            width: 400px;
+            height: 570px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            overflow: hidden;
+        }
+
+        .book_cover img {
+            width: 100%;
+            height: auto;
+        }
+
+        .book_details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .book_dis {
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            width: 500px;
+            height: 450px;
+            margin-bottom: 20px;
+            font-family: 'Segoe Script', cursive, serif;
+            font-size: 16px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .buttons button {
+            width: 150px;
+            height: 50px;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            background-color: #42a7e5;
+            color: white;
+            font-family: 'Segoe Script', cursive, serif;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background-color: #ffc800;
+            color: #42a7e5;
+        }
+
+        .book-item {
+            margin-bottom: 50px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1 class="title">Bookworm Brews</h1>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('book') }}">Books</a>
+        <a href="{{ url_for('cafe') }}">Cafe</a>
+    </nav>
+    <main>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search items...">
+        </div>
+        <div class="book-list" id="bookList">
+            <section class="book-container book-item">
+                <div class="book_cover">
+                    <img src="https://books.google.co.in/books/publisher/content?id=yIOHEAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U1xa7cTB0gUjFBf00Mib4XxWAUuow&w=1280" alt="Book Cover">
+                </div>
+                <div class="book_details">
+                    <div class="book_dis">
+                        <p>
+                            Name: Final Offer<br>
+                            Author: Lauren Asher<br>
+                            Genre: Second-chance romance<br>
+                            Published on: January 23, 2023
+                            
+                            <t>Callahan: Known as the washed-up athlete and high-functioning alcoholic, no one knows the real me except Lana Castillo, my childhood best friend. Six years after breaking her heart, I return to Lake Wisteria to inherit my grandfather's lake house—only to find Lana living there, claiming she owns it.
+Alana: Falling for Callahan Kane was a mistake. He shattered my heart six summers ago, promising never to return. Now he's back to sell his grandfather’s lake house, but there's a problem: my name is on the deed.</t>
+
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button class="book_add">Add</button>
+                        <button class="book_edit">Edit</button>
+                        <button class="book_delete">Delete</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="book-container book-item">
+                <div class="book_cover">
+                    <img src="https://books.google.co.in/books/publisher/content?id=7MiVEAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U3mF-YqKxqhCrKW_uZDbCsO9nbFog&w=1280" alt="Book Cover">
+                </div>
+                <div class="book_details">
+                    <div class="book_dis">
+                        <p>
+                            Name: Love theoretically<br>
+                            Author: Ali Hazelwood<br>
+                            Genre: STEM, romance<br>
+                            Published on: June 13, 2023
+                            <t>The many lives of theoretical physicist Elsie Hannaway collide as her fake girlfriend gig clashes with her dream job. Complicating matters is Jack, her mentor's nemesis and now her MIT gatekeeper.
+                            </t>
+                            
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button class="book_add">Add</button>
+                        <button class="book_edit">Edit</button>
+                        <button class="book_delete">Delete</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="book-container book-item">
+                <div class="book_cover">
+                    <img src="https://books.google.co.in/books/publisher/content?id=DIGtEAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U1duG9mZ3LVXAviL718PqadAaH6iw&w=1280" alt="Book Cover">
+                </div>
+                <div class="book_details">
+                    <div class="book_dis">
+                        <p>
+                            Name: Check & Mate<br>
+                            Author: Ali Hazelwood<br>
+                            Genre: Chess, romance<br>
+                            Published on: November 7, 2023
+                            <t>Mallory Greenleaf, done with chess after it destroyed her family, reluctantly enters a charity tournament and defeats world champion Nolan Sawyer. Despite her resolve, she’s drawn back into the game and its alluring champion, risking her heart and family again.
+                            </t>
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button class="book_add">Add</button>
+                        <button class="book_edit">Edit</button>
+                        <button class="book_delete">Delete</button>
+                    </div>
+                </div>
+            </section>
+            <section class="book-container book-item">
+                <div class="book_cover">
+                    <img src=https://books.google.co.in/books/publisher/content?id=J4QUEAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U0rXeMoZNpWtwuRr3NkWB93_IKv0Q&w=1280 alt="Book Cover">
+                </div>
+                <div class="book_details">
+                    <div class="book_dis">
+                        <p>
+                            Name: the Love Hypothesis<br>
+                            Author: Ali Hazelwood<br>
+                            Genre: STEM, romance<br>
+                            Published on: September 14, 2021
+                            <t>Olive Smith, a third-year Ph.D. candidate who doesn’t believe in love, panics and kisses hotshot professor Adam Carlsen to convince her friend she’s dating. Surprisingly, Adam agrees to be her fake boyfriend, and as they navigate a big science conference, Olive realizes their experiment might be leading to real feelings.
+                            </t>
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button class="book_add">Add</button>
+                        <button class="book_edit">Edit</button>
+                        <button class="book_delete">Delete</button>
+                    </div>
+                </div>
+            </section>
+            <section class="book-container book-item">
+                <div class="book_cover">
+                <img src=data:image/jpeg;base64,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 alt="Book Cover">
+                </div>
+                <div class="book_details">
+                    <div class="book_dis">
+                        <p>
+                            Name: Fine Print<br>
+                            Author: Lauren Asher<br>
+                            Genre: Sweet romance<br>
+                            Published on: July 8, 2021
+                            <t>Rowan: I hired Zahra to renovate Dreamland, kissed her, then texted her as an alias. Happy endings aren't for me.
+                                Zahra: Rowan hired me despite my criticism. He was rude, off-limits, and secretive. Money can’t fix us.
+                                </t>
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button class="book_add">Add</button>
+                        <button class="book_edit">Edit</button>
+                        <button class="book_delete">Delete</button>
+                    </div>
+                </div>
+            </section>
+            <section class="book-container book-item">
+                <div class="book_cover">
+                    <img src=https://books.google.co.in/books/publisher/content?id=DnTLEAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U3d1V4vakTyToe3maluwH3p08TDrQ&w=1280 alt="Book Cover">
+                </div>
+                <div class="book_details">
+                    <div class="book_dis">
+                        <p>
+                            Name: Terms and Conditions<br>
+                            Author: Lauren Asher<br>
+                            Genre: Office romance<br>
+                            Published on:  February 24, 2022
+                            <t>Declan: To become CEO, I must marry and have an heir. My assistant Iris volunteers, but our fake marriage feels real. Caring about her wasn’t part of the plan.
+                                Iris: Marrying Declan was supposed to be simple. Live together, marry, have a baby. But our fake relationship feels real, and falling in love wasn’t an option.
+                                </t>
+                             
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button class="book_add">Add</button>
+                        <button class="book_edit">Edit</button>
+                        <button class="book_delete">Delete</button>
+                    </div>
+                </div>
+            </section>
+            <section class="book-container book-item">
+                <div class="book_cover">
+                    <img src=https://books.google.co.in/books/publisher/content?id=5drOEAAAQBAJ&pg=PA1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U0-pJEnY0cmV7vAa5_w1x40JXHxAg&w=1280 alt="Book Cover">
+                </div>
+                <div class="book_details">
+                    <div class="book_dis">
+                        <p>
+                            Name: Rule book<br>
+                            Author: Sarah Adams<br>
+                            Genre: Fake dating<br>
+                            Published on:April 2, 2024   
+                            <t>Nora Mackenzie’s career hinges on NFL star Derek Pender, her hot ex. Derek, holding a grudge, aims for revenge. But a wild Vegas night leads to a morning surprise: marriage. Can their new relationship save their careers and ignite romance?
+                            </t>                         
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button class="book_add">Add</button>
+                        <button class="book_edit">Edit</button>
+                        <button class="book_delete">Delete</button>
+                    </div>
+                </div>
+            </section>
+            <section class="book-container book-item">
+                <div class="book_cover">
+                    <img src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnj5bt2u9-uAfw116drWqgzwcGE2v-F2FB7g&s alt="Book Cover">
+                </div>
+                <div class="book_details">
+                    <div class="book_dis">
+                        <p>
+                            Name: Cheat sheet<br>
+                            Author: Sarah Adams<br>
+                            Genre: Sports romance<br>
+                            Published on: August 17, 2021
+                            <t>Bree Camden is in love with her best friend, star quarterback Nathan Donelson, but keeps it secret to maintain their platonic friendship. When a drunken confession leads to a public contract to fake date until after the Super Bowl, lines blur, and Nathan’s actions suggest he wants more. Bree struggles to navigate the fake relationship without revealing her true feelings.</t>
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button class="book_add">Add</button>
+                        <button class="book_edit">Edit</button>
+                        <button class="book_delete">Delete</button>
+                    </div>
+                </div>
+                </section>
+
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const bookItems = document.querySelectorAll('.book-item');
+            
+            bookItems.forEach(function(item) {
+                const bookName = item.querySelector('.book_dis p').textContent.toLowerCase();
+                if (bookName.includes(searchTerm)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        document.querySelectorAll('.book_add').forEach(function(button) {
+            button.addEventListener('click', function() {
+                alert('Book added!');
+            });
+        });
+
+        document.querySelectorAll('.book_edit').forEach(function(button) {
+            button.addEventListener('click', function() {
+                const bookInfo = this.closest('.book_details').querySelector('.book_dis p');
+                const newDetails = prompt('Edit book details:', bookInfo.innerText);
+                if (newDetails) {
+                    bookInfo.innerText = newDetails;
+                }
+            });
+        });
+
+        document.querySelectorAll('.book_delete').forEach(function(button) {
+            button.addEventListener('click', function() {
+                if (confirm('Are you sure you want to delete this book?')) {
+                    this.closest('.book-item').remove();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
